@@ -322,31 +322,33 @@ table {
     width: 0%; /* Start with zero width */
 }
 
-
-/* .play-pause-btn {
+.play-pause-btn {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 3rem;
-    color: #fff;
-    background-color: rgba(0, 0, 0, 0.5);
+    
+    width: 70px;
+    height: 70px;
+    border-radius: 20%;
+    
+    background-color: rgba(231, 76, 60, 0.9); /* Red with some transparency */
     border: none;
-    border-radius: 50%;
-    width: 80px;
-    height: 80px;
-    cursor: pointer;
+    color: white;
+    font-size: 1.5em;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
+    cursor: pointer;
     z-index: 10;
-    transition: background-color 0.3s ease;
 }
 
-.play-pause-btn:hover {
-    background-color: rgba(0, 0, 0, 0.7);
+.play-pause-btn::before {
+    content: '▶'; /* play symbol by default */
 }
 
-.play-pause-btn:focus {
-    outline: none; /* Remove focus outline */
-
+video.paused + .play-pause-btn::before {
+    content: '▶';
+}

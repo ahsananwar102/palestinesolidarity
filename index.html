@@ -13,52 +13,20 @@
 
 
         <div class="video-placeholder">
-            <video id="heroVideo" autoplay>
-                <source src="palestinevideo.mp4" type="video/mp4">
+            <video id="heroVideo" preload="metadata">
+                <source src="palestinevideo.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
+        
+            <!-- Play/Pause Button -->
             <button id="playPauseBtn" class="play-pause-btn"></button>
-
+        
+            <!-- Progress bar -->
             <div id="progress-container">
                 <div id="progress-bar"></div>
             </div>
-
         </div>
-        <script>
-            const video = document.getElementById('heroVideo');
-            
-            // Toggle play/pause on video click
-            document.querySelector('.video-placeholder').addEventListener('click', () => {
-                if (video.paused) {
-                    video.play();
-                } else {
-                    video.pause();
-                }
-            });
 
-            document.querySelector('.video-placeholder').addEventListener('click', () => {
-                if (video.muted) {
-                    video.muted = false; // Unmute the video
-                }
-            });
-
-            const progressBar = document.getElementById('progress-bar');
-            const progressContainer = document.getElementById('progress-container');
-
-            // Update progress bar as the video plays
-            video.addEventListener('timeupdate', () => {
-                const progress = (video.currentTime / video.duration) * 100;
-                progressBar.style.width = progress + '%';
-            });
-
-            // Allow user to click on the progress bar to jump to that part of the video
-            progressContainer.addEventListener('click', (e) => {
-                const progressWidth = progressContainer.offsetWidth; // Get the width of the progress container
-                const clickPosition = e.offsetX; // Get the position of the click
-                const newTime = (clickPosition / progressWidth) * video.duration; // Calculate the new time based on the click position
-                video.currentTime = newTime; // Set the video's current time to the new time
-            });
-        </script>
         
                
         
@@ -231,6 +199,53 @@
         <p>Silence Enables Injustice. Let Your Actions Speak Loudly. #BoycottIsrael #StandWithPalestine</p>
     </footer>
 
+    <script>
+        const video = document.getElementById('heroVideo');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const videoContainer = document.querySelector('.video-placeholder');
+        const progressBar = document.getElementById('progress-bar');
+        const progressContainer = document.getElementById('progress-container');
+    
+        function togglePlayPause() {
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        }
+    
+        videoContainer.addEventListener('click', togglePlayPause);
+    
+        playPauseBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent click from bubbling to videoContainer
+            togglePlayPause();
+        });
+    
+        video.addEventListener('play', () => {
+            playPauseBtn.style.display = 'none';
+        });
+    
+        video.addEventListener('pause', () => {
+            playPauseBtn.style.display = 'block';
+        });
+    
+        video.addEventListener('timeupdate', () => {
+            const progress = (video.currentTime / video.duration) * 100;
+            progressBar.style.width = progress + '%';
+        });
+    
+        progressContainer.addEventListener('click', (e) => {
+            const progressWidth = progressContainer.offsetWidth;
+            const clickPosition = e.offsetX;
+            const newTime = (clickPosition / progressWidth) * video.duration;
+            video.currentTime = newTime;
+        });
+    
+        // Ensure button is shown initially
+        window.addEventListener('load', () => {
+            playPauseBtn.style.display = 'block';
+        });
+    </script>
 
 </body>
 </html>
