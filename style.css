@@ -1,0 +1,352 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* No height: 100% needed on html/body for this approach */
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+/* Header and Hero Section - DESKTOP FIRST */
+.hero-section {
+    background-color: #282828; /* Dark background for contrast */
+    color: #fff;
+    text-align: center;
+    /* No display: flex here */
+    /* Height determined by content on desktop */
+}
+
+/* Header and Hero Section - DESKTOP FIRST */
+.hero-section {
+    background-color: #282828; /* Dark background for contrast */
+    color: #fff;
+    text-align: center;
+    /* No display: flex here */
+    /* Height determined by content on desktop */
+}
+
+.video-placeholder {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Maintain aspect ratio on desktop */
+    background-color: #000;
+    font-size: 1.5em;
+    color: #aaa;
+    border-bottom: 5px solid #e74c3c; /* Red accent */
+    position: relative; /* Needed for iframe absolute positioning */
+    overflow: hidden; /* Hide anything spilling out */
+}
+
+/* Style the actual video/iframe if you embed one */
+.video-placeholder iframe,
+.video-placeholder video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Cover the entire area */
+    border: 0; /* Remove iframe border */
+}
+
+
+.hero-text {
+    padding: 30px 20px; /* Padding for text spacing */
+    background-color: #282828; /* Ensure background continues */
+}
+
+.hero-text h1 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    color: #e74c3c; /* Red accent color */
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.intro-plea {
+    font-size: 1.1em;
+    max-width: 800px;
+    margin: 0 auto;
+    font-style: italic;
+    color: #ccc;
+}
+
+/* Main Content Styling */
+main {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.content-section {
+    background-color: #fff;
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.content-section h2 {
+    font-size: 1.8em;
+    color: #b33930; /* Darker red */
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.content-section p {
+    margin-bottom: 15px;
+    color: #555;
+}
+
+/* Call to Action Section Specifics */
+.cta-section {
+    background-color: #f8f0f0; /* Slightly different background */
+    border-left: 5px solid #e74c3c;
+}
+
+.cta-section ul {
+    list-style: none; /* Remove default bullets */
+    padding-left: 0;
+    margin-top: 20px;
+}
+
+.cta-section li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    position: relative;
+    padding-left: 35px; /* Space for pseudo-element */
+}
+
+.cta-section li::before {
+    content: '✔'; /* Checkmark symbol */
+    color: #27ae60; /* Green color for checkmark */
+    font-weight: bold;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+
+.cta-section strong {
+    color: #c0392b; /* Red accent for barcode */
+}
+
+/* Blockquote Styling for Pleas */
+blockquote {
+    border-left: 4px solid #e74c3c;
+    margin: 20px 0;
+    padding: 10px 20px;
+    background-color: #f9f9f9;
+    font-style: italic;
+    color: #555;
+}
+
+blockquote cite {
+    display: block;
+    margin-top: 10px;
+    font-style: normal;
+    font-weight: bold;
+    color: #333;
+    text-align: right;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    background-color: #333;
+    color: #ccc;
+    font-size: 0.9em;
+}
+
+/* Table */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+
+  th, td {
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+
+  th {
+    background-color: #222;
+    color: #fff;
+  }
+
+  .boycott {
+    color: #d62828;
+    font-weight: bold;
+  }
+
+  .alternative {
+    color: #2a9d8f;
+    font-weight: bold;
+  }
+
+  @media (max-width: 768px) {
+    table, thead, tbody, th, td, tr {
+      display: block;
+    }
+
+    .header-row {
+      display: none; /* Hide header row on mobile */
+    }
+
+    
+    th {
+      position: sticky;
+      top: 0;
+      background-color: #222;
+      z-index: 2;
+    }
+    td {
+      border: none;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      padding-left: 50%;
+    }
+    td::before {
+      position: absolute;
+      top: 12px;
+      left: 16px;
+      width: 45%;
+      white-space: nowrap;
+      font-weight: bold;
+    }
+
+
+    td:nth-of-type(1)::before { content: "Category"; }
+    td:nth-of-type(2)::before { content: "Boycott"; }
+    td:nth-of-type(3)::before { content: "Alternatives"; }
+  }
+
+/* ==========================
+   Mobile Responsive Adjustments (No Flex Hero)
+   ========================== */
+@media (max-width: 768px) {
+
+    /* Make the video placeholder fill the viewport height */
+    .video-placeholder {
+        height: 100vh;       /* Full viewport height */
+        width: 100%;        /* Full width */
+        aspect-ratio: auto; /* Override desktop aspect ratio */
+        border-bottom: none;/* Remove border, text follows directly */
+        /* Flex is still okay HERE just to center the placeholder text itself */
+        /* It doesn't dictate layout between video and text block */
+         display: flex;
+         align-items: center;
+         justify-content: center;
+    }
+
+    /* Text block flows normally AFTER the 100vh video */
+    .hero-text {
+        padding: 25px 15px; /* Adjust padding for mobile */
+        text-align: center;
+        /* Background color is important as it's now distinct */
+        background-color: #282828;
+    }
+
+    .hero-text h1 {
+        font-size: 1.8em; /* Adjust font size */
+        margin-bottom: 10px;
+    }
+
+    .intro-plea {
+        font-size: 1em; /* Adjust font size */
+        max-width: 100%; /* Allow text to use full width */
+    }
+
+    /* Adjust main content margin if needed */
+    main {
+        margin-top: 30px; /* Adjust spacing */
+        padding: 0 15px;
+    }
+
+    .content-section {
+        padding: 20px;
+    }
+
+    .content-section h2 {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 480px) {
+     .hero-text h1 {
+        font-size: 1.6em; /* Further adjust */
+    }
+    .intro-plea {
+        font-size: 0.9em; /* Further adjust */
+    }
+}
+
+/* Video container styling */
+#heroVideo {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Progress bar container */
+#progress-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: rgba(255, 255, 255, 0.6); /* Slightly transparent background */
+    cursor: pointer; /* Show pointer cursor when hovering over the progress bar */
+}
+
+/* Progress bar styling */
+#progress-bar {
+    height: 100%;
+    background-color: #e74c3c; /* Red color */
+    width: 0%; /* Start with zero width */
+}
+
+
+/* .play-pause-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+.play-pause-btn:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.play-pause-btn:focus {
+    outline: none; /* Remove focus outline */
+

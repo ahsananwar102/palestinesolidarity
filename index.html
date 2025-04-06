@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stand with Palestine: Boycott for Humanity</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="hero-section">
+        <!-- Video Placeholder -->
+
+
+        <div class="video-placeholder">
+            <video id="heroVideo" autoplay>
+                <source src="palestine.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <button id="playPauseBtn" class="play-pause-btn"></button>
+
+            <div id="progress-container">
+                <div id="progress-bar"></div>
+            </div>
+
+        </div>
+        <script>
+            const video = document.getElementById('heroVideo');
+            
+            // Toggle play/pause on video click
+            document.querySelector('.video-placeholder').addEventListener('click', () => {
+                if (video.paused) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            });
+
+            document.querySelector('.video-placeholder').addEventListener('click', () => {
+                if (video.muted) {
+                    video.muted = false; // Unmute the video
+                }
+            });
+
+            const progressBar = document.getElementById('progress-bar');
+            const progressContainer = document.getElementById('progress-container');
+
+            // Update progress bar as the video plays
+            video.addEventListener('timeupdate', () => {
+                const progress = (video.currentTime / video.duration) * 100;
+                progressBar.style.width = progress + '%';
+            });
+
+            // Allow user to click on the progress bar to jump to that part of the video
+            progressContainer.addEventListener('click', (e) => {
+                const progressWidth = progressContainer.offsetWidth; // Get the width of the progress container
+                const clickPosition = e.offsetX; // Get the position of the click
+                const newTime = (clickPosition / progressWidth) * video.duration; // Calculate the new time based on the click position
+                video.currentTime = newTime; // Set the video's current time to the new time
+            });
+        </script>
+        
+               
+        
+        <div class="hero-text">
+            <h1>This is what you're supporting when you choose to buy products that directly fund the Israeli war machine.</h1>
+            <p class="intro-plea">Every purchase you make can either be a voice for peace or a contribution to violence. The products you buy might be part of a larger system that fuels suffering and destruction. When you fund companies that support the Israeli military, you're not just buying a product – you're endorsing the continued oppression of innocent lives. We ask you to reconsider where your money goes and stand for justice, not complicity.</p>
+        </div>
+        
+    </header>
+
+    <main>
+        <section id="why-boycott" class="content-section">
+            <h2>Why Your Choice Echoes in Gaza</h2>
+            <p>Every day feels like an eternity under occupation and bombardment. Children tremble at drones, parents mourn lost lives, and safety remains a distant dream. This suffering is fueled by an economy that supports the very systems of oppression.</p>
+            <p>Choosing to boycott Israeli goods is more than an economic decision—it's a moral stand. It’s a non-violent way to say: “I refuse to fund oppression. I refuse to be complicit in injustice.”</p>
+        </section>
+
+        <section id="call-to-action" class="content-section cta-section">
+            <h2>Take a Stand: Your Wallet Has Power</h2>
+            <p>They try to silence our voices, but they cannot silence the collective power of conscience. Join the global movement demanding justice and accountability. Here’s how you can help:</p>
+            <ul>
+                <li><strong>Know the Barcode:</strong> Products starting with the barcode <strong>729</strong> are often linked to Israel.</li>
+                <li><strong>Avoid Complicit Brands:</strong> Boycott not only Israeli-made goods but also products linked to companies supporting the Israeli occupation and genocide.</li>
+                <li><strong>Choose Ethical Alternatives:</strong> Support local businesses and ethical brands that do not contribute to injustice.</li>
+                <li><strong>Spread the Word:</strong> Share this message with friends, family, and your community. Awareness and collective action are crucial.</li>
+            </ul>
+            <p>Your simple choice in the supermarket aisle sends ripples across the globe. It tells Palestinians they are not alone. It tells corporations and governments that complicity has a cost.</p>
+        </section>
+
+        
+        <section id="call-to-action" class="content-section">
+            <h2>Boycott List</h2>
+            <p>Here are some of the brands and products to avoid, along with ethical alternatives that support local businesses and do not contribute to oppression:</p>
+        <table>
+            <thead>
+              <tr class="header-row">
+                <th>Category</th>
+                <th>Boycott</th>
+                <th>Alternatives</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Restaurants</td>
+                <td class="boycott">KFC, McDonald's, Hardees, PizzaHut, Subway, Burger King, Baskin & Robbins</td>
+                <td class="alternative">Burger Lab, Johnny & Jugnu, Smash Burger, Howdy, BRGR, Sweet Creme, Daily Deli, OPTP</td>
+              </tr>
+              <tr>
+                <td>Cosmetics</td>
+                <td class="boycott">L'Oréal, Revlon, Garnier, Estee Lauder, Olay</td>
+                <td class="alternative">J., Luscious Cosmetics, Musarrat Misbah, Rivaj</td>
+              </tr>
+              <tr>
+                <td>Cold Drinks</td>
+                <td class="boycott">Coca Cola, Pepsi, 7UP, Sprite, Fanta, Mirinda, Mountain Dew, Sting, Roar, Cappy</td>
+                <td class="alternative">Gourmet Cola, Gourmet Lemon Up, Pakola, Next Cola</td>
+              </tr>
+              <tr>
+                <td>Chocolates & Spreads</td>
+                <td class="boycott">Nutella, Kitkat, Mars, Twix, Snickers, Toblerone, Hersheys, Milka, Ferrero Rocher, Beuno, Cadbury</td>
+                <td class="alternative">Youngs Chocolate Spread, Candyland Now, Paradise, Sonnet, Novella, You</td>
+              </tr>
+              <tr>
+                <td>Ice Cream</td>
+                <td class="boycott">Walls</td>
+                <td class="alternative">HICO, Lush Crush, Popbar, Popcycle, Jalal Sons, Kitchen Cuisine, Local (Peshawari)</td>
+              </tr>
+              <tr>
+                <td>Tea & Coffee</td>
+                <td class="boycott">Lipton, Nestle Everyday, Nescafe</td>
+                <td class="alternative">Vital Tea, National Tea, ITC, Tapal, RAAZ Coffee Roasters</td>
+              </tr>
+              <tr>
+                <td>Juices</td>
+                <td class="boycott">Nestle Fruita Vitals, Nesfruita, Tang, Slice</td>
+                <td class="alternative">Fresher, Fruitien, Maza, Vivo, Sunsip LimoPani, Rooh Afza, Jami Shireen</td>
+              </tr>
+              <tr>
+                <td>Flavoured Drinks</td>
+                <td class="boycott">Milo, Nesquik</td>
+                <td class="alternative">Dayfresh, Shakarganj, Pakola</td>
+              </tr>
+              <tr>
+                <td>Dairy Products</td>
+                <td class="boycott">Milkpak, Nestle Yogurt, Everyday, Nesvita</td>
+                <td class="alternative">Prema, Anhaar, Dayfresh, Haleeb, Good Milk, Adams, Nurpur, Tarang, Gourmet Yogurt</td>
+              </tr>
+              <tr>
+                <td>Water</td>
+                <td class="boycott">Nestle, Aquafina, Dasani</td>
+                <td class="alternative">Gourmet, Sufi, Pakola, Masafi, Springley, Al Habib, al-kafeel</td>
+              </tr>
+              <tr>
+                <td>Cereals</td>
+                <td class="boycott">CocoCrunch, Kelloggs</td>
+                <td class="alternative">Nutri Lov, Fauji Cornflakes</td>
+              </tr>
+              <tr>
+                <td>Snacks</td>
+                <td class="boycott">Lays, Cheetos, Kurkure, Pringles, Doritos, Munchies</td>
+                <td class="alternative">Super Crisp, Oye Hoye, Kurleez, Knock Out, Kolson</td>
+              </tr>
+              <tr>
+                <td>Biscuits</td>
+                <td class="boycott">LU</td>
+                <td class="alternative">Bisconni, Whistlez, Innovative, EBM, Mayfair, Bake Parlor</td>
+              </tr>
+              <tr>
+                <td>Noodles & Pasta</td>
+                <td class="boycott">Maggi, Knorr</td>
+                <td class="alternative">Kolson, National Pasta, Shoop (Shan)</td>
+              </tr>
+              <tr>
+                <td>Iced Tea</td>
+                <td class="boycott">Nestea, Fuzetea</td>
+                <td class="alternative">Tapal Ice Tea</td>
+              </tr>
+              <tr>
+                <td>Shampoos</td>
+                <td class="boycott">Dove, Sunsilk, Pantene, Head & Shoulders, Clear, Tresemme</td>
+                <td class="alternative">Saeed Ghani, CoNatural, BioAmla, Jasmine Organics</td>
+              </tr>
+              <tr>
+                <td>Toothpaste</td>
+                <td class="boycott">Colgate, Sensodyne</td>
+                <td class="alternative">Medicam, Dentonic, Jasmine Organics</td>
+              </tr>
+              <tr>
+                <td>Body Care</td>
+                <td class="boycott">Lux, Dove, Lifebuoy, Ponds, Fair & Glow, Gilette, Veet</td>
+                <td class="alternative">Care, Vital Soap, Nisa, Hiba, Treet, Saeed Ghani, Jasmine Organics</td>
+              </tr>
+              <tr>
+                <td>Sanitary Napkins</td>
+                <td class="boycott">Always</td>
+                <td class="alternative">Butterfly, Mother Comfort, Trust</td>
+              </tr>
+              <tr>
+                <td>Babycare</td>
+                <td class="boycott">Johnsons, Pampers, Huggies</td>
+                <td class="alternative">Shield, Leo Diapers</td>
+              </tr>
+              <tr>
+                <td>Detergents</td>
+                <td class="boycott">Surf Excel, Ariel, Bonus, Bright, Express, Vim, Max, Sunlight</td>
+                <td class="alternative">Sufi Detergent, Sufi Liquid Soap, Alclean, Almas Dishwasher</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="their-plea" class="content-section">
+            <h2>Hear Their Voices, Feel Their Pain</h2>
+            <blockquote>
+                "We just want to live. Like you. We want our children to sleep without fear, to dream of playgrounds, not explosions. Is that too much to ask? Your boycott is a lifeline; it tells us someone cares."
+                <cite>– A Mother in Rafah</cite>
+            </blockquote>
+            <blockquote>
+                "They took our homes, our land, our brothers, our sisters. What is left? Only our dignity and our hope that the world will finally see. Don't look away. Your solidarity is our strength."
+                <cite>– A Displaced Youth from Khan Younis</cite>
+            </blockquote>
+             <blockquote>
+                "Every item bought, every dollar spent, can feel like another stone added to the walls closing in on us. Choose compassion. Choose justice. Choose to boycott."
+                <cite>– An Elder Remembering Nakba</cite>
+            </blockquote>
+        </section>
+    </main>
+
+    <footer>
+        <p>Silence Enables Injustice. Let Your Actions Speak Loudly. #BoycottIsrael #StandWithPalestine</p>
+    </footer>
+
+
+</body>
+</html>
