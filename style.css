@@ -198,11 +198,11 @@ table {
     }
 
     .hero-section{
-      padding: 0px 20px; /* Adjust padding for mobile */
+      padding: 0px 0px; /* Adjust padding for mobile */
     }
-    
+
     .video-placeholder {
-      height: 90vh; /* Full viewport height */
+      height: 100vh; /* Full viewport height */
       width: 100%; /* Full width */
       aspect-ratio: auto; /* Override desktop aspect ratio */
       border-bottom: none; /* Remove border, text follows directly */
