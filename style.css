@@ -16,15 +16,7 @@ body {
 
 /* Header and Hero Section - DESKTOP FIRST */
 .hero-section {
-    background-color: #282828; /* Dark background for contrast */
-    color: #fff;
-    text-align: center;
-    /* No display: flex here */
-    /* Height determined by content on desktop */
-}
-
-/* Header and Hero Section - DESKTOP FIRST */
-.hero-section {
+    padding: 0px 110px;
     background-color: #282828; /* Dark background for contrast */
     color: #fff;
     text-align: center;
@@ -203,6 +195,17 @@ table {
   @media (max-width: 768px) {
     table, thead, tbody, th, td, tr {
       display: block;
+    }
+
+    .hero-section{
+      padding: 0px 20px; /* Adjust padding for mobile */
+    }
+    
+    .video-placeholder {
+      height: 90vh; /* Full viewport height */
+      width: 100%; /* Full width */
+      aspect-ratio: auto; /* Override desktop aspect ratio */
+      border-bottom: none; /* Remove border, text follows directly */
     }
 
     .header-row {

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stand with Palestine: Boycott for Humanity</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preload" href="palestine.mp4" as="video" type="video/mp4">
 </head>
 <body>
 
@@ -13,8 +14,8 @@
 
 
         <div class="video-placeholder">
-            <video id="heroVideo" preload="metadata">
-                <source src="palestinevideo.mp4" type="video/mp4" />
+            <video id="heroVideo" preload="auto">
+                <source src="palestine.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
         
@@ -200,52 +201,58 @@
     </footer>
 
     <script>
-        const video = document.getElementById('heroVideo');
-        const playPauseBtn = document.getElementById('playPauseBtn');
-        const videoContainer = document.querySelector('.video-placeholder');
-        const progressBar = document.getElementById('progress-bar');
-        const progressContainer = document.getElementById('progress-container');
-    
-        function togglePlayPause() {
-            if (video.paused) {
-                video.play();
-            } else {
-                video.pause();
-            }
-        }
-    
-        videoContainer.addEventListener('click', togglePlayPause);
-    
-        playPauseBtn.addEventListener('click', (e) => {
-            e.stopPropagation(); // Prevent click from bubbling to videoContainer
-            togglePlayPause();
-        });
-    
-        video.addEventListener('play', () => {
-            playPauseBtn.style.display = 'none';
-        });
-    
-        video.addEventListener('pause', () => {
-            playPauseBtn.style.display = 'block';
-        });
-    
-        video.addEventListener('timeupdate', () => {
-            const progress = (video.currentTime / video.duration) * 100;
-            progressBar.style.width = progress + '%';
-        });
-    
-        progressContainer.addEventListener('click', (e) => {
-            const progressWidth = progressContainer.offsetWidth;
-            const clickPosition = e.offsetX;
-            const newTime = (clickPosition / progressWidth) * video.duration;
-            video.currentTime = newTime;
-        });
-    
-        // Ensure button is shown initially
-        window.addEventListener('load', () => {
-            playPauseBtn.style.display = 'block';
-        });
-    </script>
+      const video = document.getElementById('heroVideo');
+      const playPauseBtn = document.getElementById('playPauseBtn');
+      const videoContainer = document.querySelector('.video-placeholder');
+      const progressBar = document.getElementById('progress-bar');
+      const progressContainer = document.getElementById('progress-container');
+  
+      function togglePlayPause() {
+          if (video.paused) {
+              video.play();
+          } else {
+              video.pause();
+          }
+      }
+  
+      videoContainer.addEventListener('click', togglePlayPause);
+  
+      playPauseBtn.addEventListener('click', (e) => {
+          e.stopPropagation(); // Prevent click from bubbling to videoContainer
+          togglePlayPause();
+      });
+  
+      video.addEventListener('play', () => {
+          playPauseBtn.style.display = 'none';
+      });
+  
+      video.addEventListener('pause', () => {
+          playPauseBtn.style.display = 'block';
+      });
+  
+      video.addEventListener('timeupdate', () => {
+          const progress = (video.currentTime / video.duration) * 100;
+          progressBar.style.width = progress + '%';
+      });
+  
+      progressContainer.addEventListener('click', (e) => {
+          const progressWidth = progressContainer.offsetWidth;
+          const clickPosition = e.offsetX;
+          const newTime = (clickPosition / progressWidth) * video.duration;
+          video.currentTime = newTime;
+      });
+  
+      // Preload the video when the page loads
+      window.addEventListener('load', () => {
+          video.load(); // Trigger download
+      });
+  
+      // Show play button only after video is ready to play through
+      video.addEventListener('canplaythrough', () => {
+          playPauseBtn.style.display = 'block';
+      });
+  </script>
+  
 
 </body>
 </html>
